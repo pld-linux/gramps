@@ -1,7 +1,7 @@
 diff -urN gramps-1.0.7.orig/src/gramps.desktop gramps-1.0.7/src/gramps.desktop
---- gramps-1.0.7.orig/src/gramps.desktop	2004-12-02 14:47:19.000000000 +0100
-+++ gramps-1.0.7/src/gramps.desktop	2004-12-03 14:18:39.000000000 +0100
-@@ -1,23 +1,25 @@
+--- gramps-1.0.7.orig/src/gramps.desktop	2004-12-03 15:42:01.416465976 +0100
++++ gramps-1.0.7/src/gramps.desktop	2004-12-03 15:42:30.052112696 +0100
+@@ -1,23 +1,24 @@
  [Desktop Entry]
  Encoding=UTF-8
  Name=GRAMPS Genealogy System
@@ -35,4 +35,3 @@ diff -urN gramps-1.0.7.orig/src/gramps.desktop gramps-1.0.7/src/gramps.desktop
 -Categories=Application;Genealogy;
 +Categories=GTK;GNOME;Education;Science;
  X-GNOME-DocPath=gramps/gramps-manual.xml
-+# vi: encoding=utf-8
