@@ -11,7 +11,9 @@ URL:		http://gramps.sourceforge.net/
 BuildRequires:	desktop-file-utils >= 0.2.92
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.2
+BuildRequires:	python-gnome-gconf
 BuildRequires:	python-gnome-ui >= 1.99
+BuildRequires:	python-gnome-vfs
 BuildRequires:	python-pygtk >= 1.99
 BuildRequires:	python-pygtk-glade >= 1.99
 BuildRequires:	scrollkeeper >= 0.3.5
