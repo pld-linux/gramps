@@ -18,9 +18,11 @@ BuildRequires:	autoconf >= 2.52
 BuildRequires:	rpm >= 4.1
 BuildRequires:	desktop-file-utils >= 0.2.92
 Requires:	python >= 2.2
+Requires:	python-Imaging 
 Requires:	python-gnome >= 1.99
-Requires:	python-gnome-gconf >= 1.99
 Requires:	python-gnome-canvas >= 1.99
+Requires:	python-gnome-gconf >= 1.99
+Requires:	python-gnome-ui >= 1.99
 Requires:	python-pygtk >= 1.99
 Requires:	python-pygtk-glade >= 1.99
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
