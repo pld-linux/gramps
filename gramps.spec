@@ -2,7 +2,7 @@ Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl):	System programowania do zarz±dzania badaniami i analiz± genealogiczn±
 Name:		gramps
 Version:	1.0.4
-Release:	0.2
+Release:	0.3
 License:	GPL
 Group:		Applications/Science
 Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
@@ -16,6 +16,7 @@ BuildRequires:	python-gnome-ui >= 1.99
 BuildRequires:	python-gnome-vfs
 BuildRequires:	python-pygtk-gtk >= 1.99
 BuildRequires:	python-pygtk-glade >= 1.99
+BuildRequires:	python-ReportLab
 BuildRequires:	scrollkeeper >= 0.3.5
 Requires:	python >= 2.2
 Requires:	python-Imaging 
@@ -25,6 +26,7 @@ Requires:	python-gnome-gconf >= 1.99
 Requires:	python-gnome-ui >= 1.99
 Requires:	python-pygtk-gtk >= 1.99
 Requires:	python-pygtk-glade >= 1.99
+Requires:	python-ReportLab
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_localstatedir	/var/lib
