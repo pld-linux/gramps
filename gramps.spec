@@ -1,16 +1,15 @@
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl):	System programowania do zarz±dzania badaniami i analiz± genealogiczn±
 Name:		gramps
-Version:	1.0.7
-Release:	5
+Version:	1.0.8
+Release:	1
 License:	GPL
 Group:		Applications/Science
 Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
-# Source0-md5:	54623af545bf591b898cf648be4a4155
+# Source0-md5:	413bc75c1005d456c9efd26e44ce09eb
 Patch0:		%{name}-locale_names.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gramps.sourceforge.net/
-BuildRequires:	desktop-file-utils >= 0.2.92
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.2
 BuildRequires:	python-gnome-gconf
@@ -59,16 +58,9 @@ rm -rf src/po/no.*
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-desktop-file-install \
-	--vendor gramps \
-	--delete-original \
-	--dir $RPM_BUILD_ROOT%{_desktopdir} \
-	$RPM_BUILD_ROOT%{_datadir}/gnome/apps/Applications/gramps.desktop
 
 rm -rf $RPM_BUILD_ROOT%{_localstatedir}/scrollkeeper
 
