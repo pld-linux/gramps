@@ -10,6 +10,7 @@ Release:	0.1
 License:	GPL
 Group:		Applications/Science
 Source0:	http://download.sourceforge.net/gramps/%{name}-%{version}.tar.gz
+# Source0-md5:	027500af2012889b37bfa99ab1e9e382
 URL:		http://gramps.sourceforge.net/
 BuildRequires:	scrollkeeper >= 0.3.5
 BuildRequires:	automake >= 1.6
