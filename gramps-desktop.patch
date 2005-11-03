@@ -1,7 +1,7 @@
-diff -urN gramps-1.0.7.orig/src/gramps.desktop gramps-1.0.7/src/gramps.desktop
---- gramps-1.0.7.orig/src/gramps.desktop	2004-12-03 15:42:01.416465976 +0100
-+++ gramps-1.0.7/src/gramps.desktop	2004-12-03 15:42:30.052112696 +0100
-@@ -1,23 +1,24 @@
+diff -urN gramps-2.0.8.org/src/data/gramps.desktop gramps-2.0.8/src/data/gramps.desktop
+--- gramps-2.0.8.org/src/data/gramps.desktop	2005-10-22 22:17:30.358171000 +0200
++++ gramps-2.0.8/src/data/gramps.desktop	2005-10-23 12:57:08.399314000 +0200
+@@ -1,28 +1,29 @@
  [Desktop Entry]
  Encoding=UTF-8
  Name=GRAMPS Genealogy System
@@ -10,24 +10,29 @@ diff -urN gramps-1.0.7.orig/src/gramps.desktop gramps-1.0.7/src/gramps.desktop
 -Name[nb]=GRAMPS
 -Name[ru]=GRAMPS
  Name[de]=GRAMPS
++Name[fi]=GRAMPS sukututkimusohjelma
  Name[hu]=GRAMPS
 +Name[nb]=GRAMPS
+ Name[nl]=GRAMPS genealogie
+-Name[fi]=GRAMPS sukututkimusohjelma
 +Name[pl]=GRAMPS
-+Name[sv]=GRAMPS
 +Name[ru]=GRAMPS
 +Name[sv]=GRAMPS
  Comment=Manage genealogical information, perform genealogical research and analysis
+-Comment[nl]=Een programma voor genealogie infomatie beheer en genealogisch onderzoek en analyse
 -Comment[sv]=Ett släktforskningsprogram
 -Comment[no]=Et slektsforskningsprogram
 -Comment[nb]=Et slektsforskningsprogram
 -Comment[ru]=Система исследования и анализа генеалогической информации
  Comment[de]=Ein Programm zur Ahnenforschung
- Comment[hu]=Örökléskutató és elemző program
+-Comment[hu]=Örökléskutató és elemző program
+ Comment[fi]=Hallinnoi, tutki ja analysoi sukutietoa
++Comment[hu]=Örökléskutató és elemző program
 +Comment[nb]=Et slektsforskningsprogram
++Comment[nl]=Een programma voor genealogie infomatie beheer en genealogisch onderzoek en analyse
 +Comment[pl]=Zarządzanie informacjami genealogicznymi, przeprowadzanie badań i analiz genealogicznych
 +Comment[ru]=Система исследования и анализа генеалогической информации
 +Comment[sv]=Ett släktforskningsprogram
- Exec=gramps
  Icon=gramps.png
  Terminal=false
  Type=Application
@@ -35,3 +40,6 @@ diff -urN gramps-1.0.7.orig/src/gramps.desktop gramps-1.0.7/src/gramps.desktop
 -Categories=Application;Genealogy;
 +Categories=GTK;GNOME;Education;Science;
  X-GNOME-DocPath=gramps/gramps-manual.xml
+ MimeType=application/x-gramps
+ Exec=gramps %F
++# vi: encoding=utf-8
