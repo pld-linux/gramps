@@ -1,32 +1,34 @@
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl):	System programowania do zarz±dzania badaniami i analiz± genealogiczn±
 Name:		gramps
-Version:	1.0.11
+Version:	2.0.8
 Release:	1
 License:	GPL
 Group:		Applications/Science
 Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
-# Source0-md5:	f934e3cc4e12cce272e24611b143e728
+# Source0-md5:	84f2659b292b5e2abc92a8d56148495b
 Patch0:		%{name}-locale_names.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gramps.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 2.2
+BuildRequires:	python-devel >= 2.3
 BuildRequires:	python-gnome-gconf
-BuildRequires:	python-gnome-ui >= 1.99
+BuildRequires:	python-gnome-ui >= 2.6.0
 BuildRequires:	python-gnome-vfs
-BuildRequires:	python-pygtk-gtk >= 1.99
-BuildRequires:	python-pygtk-glade >= 1.99
+BuildRequires:	python-pygtk-gtk >= 2.5.0
+BuildRequires:	python-pygtk-glade >= 2.5.0
 BuildRequires:	python-ReportLab
 BuildRequires:	scrollkeeper >= 0.3.5
-Requires:	python >= 2.2
+Requires:	python >= 2.3
 Requires:	python-Imaging 
-Requires:	python-gnome >= 1.99
-Requires:	python-gnome-canvas >= 1.99
-Requires:	python-gnome-gconf >= 1.99
-Requires:	python-gnome-ui >= 1.99
-Requires:	python-pygtk-gtk >= 1.99
-Requires:	python-pygtk-glade >= 1.99
+Requires:	python-gnome >= 2.6.0
+Requires:	python-gnome-canvas >= 2.6.0
+Requires:	python-gnome-gconf >= 2.6.0 
+Requires:	python-gnome-ui >= 2.6.0
+Requires:	python-pygtk-gtk >= 2.5.0
+Requires:	python-pygtk-glade >= 2.5.0
 Requires:	python-ReportLab
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -61,23 +63,42 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+cp src/gramps.png $RPM_BUILD_ROOT%{_pixmapsdir}
 rm -rf $RPM_BUILD_ROOT%{_localstatedir}/scrollkeeper
+rm -rf $RPM_BUILD_ROOT%{_datadir}/mime-info
+rm -rf $RPM_BUILD_ROOT%{_datadir}/application-registry
 
 %find_lang gramps
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /usr/bin/scrollkeeper-update
-%postun	-p /usr/bin/scrollkeeper-update
+%post
+%gconf_schema_install gramps.schemas
+%update_desktop_database_post
+##%scrollkeeper-update_post
+
+%preun
+%gconf_schema_uninstall gramps.schemas
+
+%postun
+%update_desktop_database_postun
+##%scrollkeeper-update_postun
 
 %files -f gramps.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog FAQ NEWS README TODO
 %attr(755,root,root) %{_bindir}/gramps
-%attr(755,root,root) %{_libdir}/gramps
+%{_sysconfdir}/gconf/schemas/gramps.schemas
 %{_datadir}/gramps
+%{_datadir}/mime/packages/gramps.xml
+%{_datadir}/mime/magic
+%{_datadir}/mime/globs
+%{_datadir}/mime/XMLnamespaces
+%{_datadir}/mime/application/*
 %{_datadir}/omf/gramps
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
+%{_iconsdir}/gnome/48x48/mimetypes/*
 %{_pixmapsdir}/gramps.png
 %{_mandir}/man1/*
