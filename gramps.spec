@@ -105,7 +105,7 @@ EOF
 %{_datadir}/gramps/*.glade
 %{_datadir}/gramps/*.jpg
 %{_datadir}/gramps/*.png
-%{_datadir}/gramps/*.py[co]
+%{_datadir}/gramps/*.py*
 %{_datadir}/gramps/gnome/help/gramps/C
 %lang(fr) %{_datadir}/gramps/gnome/help/gramps/fr
 
