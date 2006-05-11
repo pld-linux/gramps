@@ -44,7 +44,7 @@ system wtyczek w Pythonie.
 %patch1 -p1
 
 sed -i -e 's|gramps.py|gramps.pyc|' gramps.sh.in
-rm -rf src/po/no.*
+rm -f src/po/no.*
 
 %build
 %{__aclocal}
@@ -117,5 +117,5 @@ EOF
 %{_sysconfdir}/gconf/schemas/gramps.schemas
 
 %{_mandir}/man1/*
-%{_mandir}/*/man1/*
+%lang(fr) %{_mandir}/fr/man1/*
 %{_omf_dest_dir}/%{name}
