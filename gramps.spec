@@ -9,6 +9,7 @@ Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
 # Source0-md5:	2c9c00acce995546af325087622235e5
 Patch0:		%{name}-locale_names.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-icon_path.patch
 URL:		http://gramps.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -42,6 +43,7 @@ system wtyczek w Pythonie.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 sed -i -e 's|gramps.py|gramps.pyc|' gramps.sh.in
 rm -f src/po/no.*
@@ -110,7 +112,7 @@ EOF
 %lang(fr) %{_datadir}/gramps/gnome/help/gramps/fr
 
 %{_desktopdir}/*.desktop
-%{_iconsdir}/gnome/48x48/mimetypes/*
+%{_iconsdir}/hicolor/48x48/mimetypes/*
 %{_pixmapsdir}/gramps.png
 
 %{_datadir}/mime/packages/gramps.xml

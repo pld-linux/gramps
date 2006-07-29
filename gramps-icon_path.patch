@@ -1,0 +1,23 @@
+diff -urN gramps-2.0.10.orig/src/data/Makefile.am gramps-2.0.10/src/data/Makefile.am
+--- gramps-2.0.10.orig/src/data/Makefile.am	2005-09-12 01:24:33.000000000 +0200
++++ gramps-2.0.10/src/data/Makefile.am	2006-07-29 16:43:37.596076000 +0200
+@@ -60,8 +60,8 @@
+ install-data-local:
+ 	$(INSTALL) -d $(DESTDIR)$(prefix)/share/applications
+ 	$(INSTALL_DATA) $(top_srcdir)/src/data/gramps.desktop $(DESTDIR)$(prefix)/share/applications
+-	$(INSTALL) -d $(DESTDIR)$(prefix)/share/icons/gnome/48x48/mimetypes/
+-	$(INSTALL_DATA) $(top_srcdir)/src/data/gnome-mime-application-x-*.png $(DESTDIR)$(prefix)/share/icons/gnome/48x48/mimetypes/
++	$(INSTALL) -d $(DESTDIR)$(prefix)/share/icons/hicolor/48x48/mimetypes/
++	$(INSTALL_DATA) $(top_srcdir)/src/data/gnome-mime-application-x-*.png $(DESTDIR)$(prefix)/share/icons/hicolor/48x48/mimetypes/
+ 	$(INSTALL) -d $(DESTDIR)$(prefix)/share/application-registry
+ 	$(INSTALL_DATA) $(top_srcdir)/src/data/gramps.applications $(DESTDIR)$(prefix)/share/application-registry
+ 	$(INSTALL) -d $(DESTDIR)$(prefix)/share/mime-info
+@@ -76,7 +76,7 @@
+ 
+ uninstall-local:
+ 	-rm $(DESTDIR)$(prefix)/share/applications/gramps.desktop
+-	-rm $(DESTDIR)$(prefix)/share/icons/gnome/48x48/mimetypes/gnome-mime-application-x-*.png
++	-rm $(DESTDIR)$(prefix)/share/icons/hicolor/48x48/mimetypes/gnome-mime-application-x-*.png
+ 	-rm $(DESTDIR)$(prefix)/share/mime-info/gramps.keys
+ 	-rm $(DESTDIR)$(prefix)/share/mime-info/gramps.mime
+ 	-rm $(DESTDIR)$(prefix)/share/application-registry/gramps.applications
