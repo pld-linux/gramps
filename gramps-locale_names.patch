@@ -1,24 +1,24 @@
-diff -urN gramps-2.0.9.org/configure gramps-2.0.9/configure
---- gramps-2.0.9.org/configure	2005-12-12 02:41:21.000000000 +0100
-+++ gramps-2.0.9/configure	2006-02-18 17:28:09.521722000 +0100
+diff -urN gramps-2.0.11.orig/configure gramps-2.0.11/configure
+--- gramps-2.0.11.orig/configure	2006-08-10 22:05:40.179292250 +0200
++++ gramps-2.0.11/configure	2006-08-10 22:07:48.995342750 +0200
 @@ -2023,7 +2023,7 @@
     { (exit 1); exit 1; }; }
  fi
  
--LANGUAGES="hu zh_CN cs da de es fr it nb nl no pl pt_BR ro ru sv eo fi lt"
-+LANGUAGES="hu zh_CN cs da de es fr it nb nl pl pt_BR ro ru sv eo fi lt"
+-LANGUAGES="hu zh_CN cs da de es fr it nb nl no pl pt_BR ro ru sv eo fi lt sk"
++LANGUAGES="hu zh_CN cs da de es fr it nb nl pl pt_BR ro ru sv eo fi lt sk"
  
  
  DISTLANGS=
-diff -urN gramps-2.0.9.org/configure.in gramps-2.0.9/configure.in
---- gramps-2.0.9.org/configure.in	2005-12-12 02:40:17.000000000 +0100
-+++ gramps-2.0.9/configure.in	2006-02-18 17:28:39.101722000 +0100
+diff -urN gramps-2.0.11.orig/configure.in gramps-2.0.11/configure.in
+--- gramps-2.0.11.orig/configure.in	2006-08-10 22:05:40.179292250 +0200
++++ gramps-2.0.11/configure.in	2006-08-10 22:08:19.049221000 +0200
 @@ -42,7 +42,7 @@
    AC_MSG_ERROR(Couldn't find iconv program.)
  fi
  
--LANGUAGES="hu zh_CN cs da de es fr it nb nl no pl pt_BR ro ru sv eo fi lt"
-+LANGUAGES="hu zh_CN cs da de es fr it nb nl pl pt_BR ro ru sv eo fi lt"
+-LANGUAGES="hu zh_CN cs da de es fr it nb nl no pl pt_BR ro ru sv eo fi lt sk"
++LANGUAGES="hu zh_CN cs da de es fr it nb nl pl pt_BR ro ru sv eo fi lt sk"
  AC_SUBST(LANGUAGES)
  
  DISTLANGS=
