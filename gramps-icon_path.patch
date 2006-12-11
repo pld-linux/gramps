@@ -1,23 +1,21 @@
-diff -urN gramps-2.0.10.orig/src/data/Makefile.am gramps-2.0.10/src/data/Makefile.am
---- gramps-2.0.10.orig/src/data/Makefile.am	2005-09-12 01:24:33.000000000 +0200
-+++ gramps-2.0.10/src/data/Makefile.am	2006-07-29 16:43:37.596076000 +0200
-@@ -60,8 +60,8 @@
- install-data-local:
- 	$(INSTALL) -d $(DESTDIR)$(prefix)/share/applications
- 	$(INSTALL_DATA) $(top_srcdir)/src/data/gramps.desktop $(DESTDIR)$(prefix)/share/applications
--	$(INSTALL) -d $(DESTDIR)$(prefix)/share/icons/gnome/48x48/mimetypes/
--	$(INSTALL_DATA) $(top_srcdir)/src/data/gnome-mime-application-x-*.png $(DESTDIR)$(prefix)/share/icons/gnome/48x48/mimetypes/
-+	$(INSTALL) -d $(DESTDIR)$(prefix)/share/icons/hicolor/48x48/mimetypes/
-+	$(INSTALL_DATA) $(top_srcdir)/src/data/gnome-mime-application-x-*.png $(DESTDIR)$(prefix)/share/icons/hicolor/48x48/mimetypes/
- 	$(INSTALL) -d $(DESTDIR)$(prefix)/share/application-registry
- 	$(INSTALL_DATA) $(top_srcdir)/src/data/gramps.applications $(DESTDIR)$(prefix)/share/application-registry
- 	$(INSTALL) -d $(DESTDIR)$(prefix)/share/mime-info
-@@ -76,7 +76,7 @@
+diff -urN gramps-2.2.3.orig/data/Makefile.am gramps-2.2.3/data/Makefile.am
+--- gramps-2.2.3.orig/data/Makefile.am	2006-11-10 07:10:42.000000000 +0100
++++ gramps-2.2.3/data/Makefile.am	2006-12-11 23:36:12.649249750 +0100
+@@ -34,7 +34,7 @@
+ xmldir = $(SHARED_MIME_DIR)/packages
+ xml_DATA = $(xml_files)
  
- uninstall-local:
- 	-rm $(DESTDIR)$(prefix)/share/applications/gramps.desktop
--	-rm $(DESTDIR)$(prefix)/share/icons/gnome/48x48/mimetypes/gnome-mime-application-x-*.png
-+	-rm $(DESTDIR)$(prefix)/share/icons/hicolor/48x48/mimetypes/gnome-mime-application-x-*.png
- 	-rm $(DESTDIR)$(prefix)/share/mime-info/gramps.keys
- 	-rm $(DESTDIR)$(prefix)/share/mime-info/gramps.mime
- 	-rm $(DESTDIR)$(prefix)/share/application-registry/gramps.applications
+-pngdir = $(datadir)/icons/gnome/48x48/mimetypes
++pngdir = $(datadir)/icons/hicolor/48x48/mimetypes
+ png_DATA = \
+ 	gnome-mime-application-x-gramps.png \
+ 	gnome-mime-application-x-gedcom.png \
+@@ -42,7 +42,7 @@
+ 	gnome-mime-application-x-gramps-xml.png \
+ 	gnome-mime-application-x-geneweb.png
+ 
+-svgdir = $(datadir)/icons/gnome/scalable/mimetypes
++svgdir = $(datadir)/icons/hicolor/scalable/mimetypes
+ svg_DATA = \
+ 	gnome-mime-application-x-gramps.svg \
+ 	gnome-mime-application-x-gedcom.svg \

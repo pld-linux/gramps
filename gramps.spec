@@ -1,12 +1,13 @@
+# TODO: section %files, unpacked files
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl):	System programowania do zarz±dzania badaniami i analiz± genealogiczn±
 Name:		gramps
-Version:	2.0.11
-Release:	1
+Version:	2.2.3
+Release:	0.1
 License:	GPL
 Group:		Applications/Science
 Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
-# Source0-md5:	650873c3c571a921a9c42b975ced2105
+# Source0-md5:	7107d1ad5555aecb812e4c370a74f0bf
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-icon_path.patch
 Patch2:		%{name}-locale_names.patch
@@ -15,6 +16,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	GConf2-devel
 BuildRequires:	gettext-devel
+BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.6.0
@@ -64,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
-install src/gramps.png $RPM_BUILD_ROOT%{_pixmapsdir}
+install src/images/gramps.png $RPM_BUILD_ROOT%{_pixmapsdir}
 rm -rf $RPM_BUILD_ROOT%{_datadir}/mime-info
 rm -rf $RPM_BUILD_ROOT%{_datadir}/application-registry
 
@@ -95,25 +97,28 @@ EOF
 %doc AUTHORS ChangeLog FAQ NEWS README TODO
 %attr(755,root,root) %{_bindir}/gramps
 
-%dir %{_datadir}/gramps
-%dir %{_datadir}/gramps/gnome
-%dir %{_datadir}/gramps/gnome/help
-%dir %{_datadir}/gramps/gnome/help/gramps
-%{_datadir}/gramps/data
-%{_datadir}/gramps/dates
-%{_datadir}/gramps/docgen
-%{_datadir}/gramps/example
-%{_datadir}/gramps/plugins
-%{_datadir}/gramps/*.glade
-%{_datadir}/gramps/*.jpg
-%{_datadir}/gramps/*.png
-%{_datadir}/gramps/*.py*
-%{_datadir}/gramps/gnome/help/gramps/C
-%lang(fr) %{_datadir}/gramps/gnome/help/gramps/fr
-%lang(sk) %{_datadir}/gramps/gnome/help/gramps/sk
+##%dir %{_datadir}/gramps
+##%dir %{_datadir}/gramps/gnome
+##%dir %{_datadir}/gramps/gnome/help
+##%dir %{_datadir}/gramps/gnome/help/gramps
+##%{_datadir}/gramps/data
+###%{_datadir}/gramps/dates
+##%{_datadir}/gramps/docgen
+##%{_datadir}/gramps/example
+##%{_datadir}/gramps/plugins
+###%{_datadir}/gramps/*.glade
+###%{_datadir}/gramps/*.jpg
+###%{_datadir}/gramps/*.png
+##%{_datadir}/gramps/*.py*
+##%{_datadir}/gramps/gnome/help/gramps/C
+##%lang(fr) %{_datadir}/gramps/gnome/help/gramps/fr
+##%lang(sk) %{_datadir}/gramps/gnome/help/gramps/sk
+%{_datadir}/gramps
+%{_datadir}/gnome/help/gramps
 
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/48x48/mimetypes/*
+%{_iconsdir}/hicolor/scalable/mimetypes/*
 %{_pixmapsdir}/gramps.png
 
 %{_datadir}/mime/packages/gramps.xml
