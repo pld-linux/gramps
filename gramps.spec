@@ -1,9 +1,9 @@
-# TODO: section %files, unpacked files
+# TODO: order with .py .pyc .pyo and %files
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl):	System programowania do zarz±dzania badaniami i analiz± genealogiczn±
 Name:		gramps
 Version:	2.2.3
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Applications/Science
 Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
@@ -56,7 +56,8 @@ rm -f src/po/no.*
 %{__autoconf}
 %configure \
 	--disable-schemas-install \
-	--disable-mime-install
+	--disable-mime-install \
+	--disable-scrollkeeper
 %{__make}
 
 %install
