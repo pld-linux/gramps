@@ -1,10 +1,9 @@
-# TODO: order with .py .pyc .pyo and %files
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl):	System programowania do zarz±dzania badaniami i analiz± genealogiczn±
 Name:		gramps
 Version:	2.2.3
-Release:	0.2
-License:	GPL
+Release:	1
+License:	GPL v2
 Group:		Applications/Science
 Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
 # Source0-md5:	7107d1ad5555aecb812e4c370a74f0bf
@@ -70,6 +69,7 @@ install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 install src/images/gramps.png $RPM_BUILD_ROOT%{_pixmapsdir}
 rm -rf $RPM_BUILD_ROOT%{_datadir}/mime-info
 rm -rf $RPM_BUILD_ROOT%{_datadir}/application-registry
+rm -rf $RPM_BUILD_ROOT%{_datadir}/gramps/COPYING
 
 %find_lang gramps
 
@@ -98,28 +98,35 @@ EOF
 %doc AUTHORS ChangeLog FAQ NEWS README TODO
 %attr(755,root,root) %{_bindir}/gramps
 
-##%dir %{_datadir}/gramps
-##%dir %{_datadir}/gramps/gnome
-##%dir %{_datadir}/gramps/gnome/help
-##%dir %{_datadir}/gramps/gnome/help/gramps
-##%{_datadir}/gramps/data
-###%{_datadir}/gramps/dates
-##%{_datadir}/gramps/docgen
-##%{_datadir}/gramps/example
-##%{_datadir}/gramps/plugins
-###%{_datadir}/gramps/*.glade
-###%{_datadir}/gramps/*.jpg
-###%{_datadir}/gramps/*.png
-##%{_datadir}/gramps/*.py*
-##%{_datadir}/gramps/gnome/help/gramps/C
-##%lang(fr) %{_datadir}/gramps/gnome/help/gramps/fr
-##%lang(sk) %{_datadir}/gramps/gnome/help/gramps/sk
-%{_datadir}/gramps
+%dir %{_datadir}/gramps
+%{_datadir}/gramps/*.py*
+%{_datadir}/gramps/Config
+%{_datadir}/gramps/DataViews
+%{_datadir}/gramps/DateHandler
+%{_datadir}/gramps/DisplayModels
+%{_datadir}/gramps/DisplayTabs
+%{_datadir}/gramps/Editors
+%{_datadir}/gramps/FilterEditor
+%{_datadir}/gramps/Filters
+%{_datadir}/gramps/GrampsDb
+%{_datadir}/gramps/GrampsLogger
+%{_datadir}/gramps/Merge
+%{_datadir}/gramps/Mime
+%{_datadir}/gramps/PluginUtils
+%{_datadir}/gramps/RelLib
+%{_datadir}/gramps/ReportBase
+%{_datadir}/gramps/Selectors
+%{_datadir}/gramps/data
+%{_datadir}/gramps/docgen
+%{_datadir}/gramps/example
+%{_datadir}/gramps/glade
+%{_datadir}/gramps/images
+%{_datadir}/gramps/plugins
+
 %{_datadir}/gnome/help/gramps
 
 %{_desktopdir}/*.desktop
-%{_iconsdir}/hicolor/48x48/mimetypes/*
-%{_iconsdir}/hicolor/scalable/mimetypes/*
+%{_iconsdir}/hicolor/*/mimetypes/*
 %{_pixmapsdir}/gramps.png
 
 %{_datadir}/mime/packages/gramps.xml
