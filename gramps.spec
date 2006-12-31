@@ -1,12 +1,12 @@
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl):	System programowania do zarz±dzania badaniami i analiz± genealogiczn±
 Name:		gramps
-Version:	2.2.3
+Version:	2.2.4
 Release:	1
 License:	GPL v2
 Group:		Applications/Science
 Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
-# Source0-md5:	7107d1ad5555aecb812e4c370a74f0bf
+# Source0-md5:	fe07dfaac9327a384ea84cb2d718aefb
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-icon_path.patch
 Patch2:		%{name}-locale_names.patch
