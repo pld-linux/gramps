@@ -10,7 +10,7 @@ Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-icon_path.patch
 Patch2:		%{name}-locale_names.patch
-URL:		http://gramps.sourceforge.net/
+URL:		http://gramps-project.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	GConf2-devel
