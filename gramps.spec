@@ -1,5 +1,5 @@
 Summary:	Genealogical Research and Analysis Management Programming System
-Summary(pl):	System programowania do zarz±dzania badaniami i analiz± genealogiczn±
+Summary(pl.UTF-8):   System programowania do zarzÄ…dzania badaniami i analizÄ… genealogicznÄ…
 Name:		gramps
 Version:	2.2.4
 Release:	2
@@ -34,10 +34,10 @@ gramps (Genealogical Research and Analysis Management Programming
 System) is a GNOME based genealogy program supporting a Python based
 plugin system.
 
-%description -l pl
+%description -l pl.UTF-8
 gramps (Genealogical Research and Analysis Management Programming
-System - system programowania do zarz±dzania badaniami i analiz±
-genealogiczn±) to oparty na GNOME program do genealogii obs³uguj±cy
+System - system programowania do zarzÄ…dzania badaniami i analizÄ…
+genealogicznÄ…) to oparty na GNOME program do genealogii obsÅ‚ugujÄ…cy
 system wtyczek w Pythonie.
 
 %prep
