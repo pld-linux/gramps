@@ -1,15 +1,14 @@
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl.UTF-8):	System programowania do zarządzania badaniami i analizą genealogiczną
 Name:		gramps
-Version:	2.2.8
+Version:	2.2.9
 Release:	1
 License:	GPL v2
 Group:		Applications/Science
 Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
-# Source0-md5:	9769ee41ec09d7b55a805940ac20894d
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-icon_path.patch
-Patch2:		%{name}-locale_names.patch
+# Source0-md5:	53375e218bef6773109b85a543c35d59
+Patch0:		%{name}-icon_path.patch
+Patch1:		%{name}-locale_names.patch
 URL:		http://gramps-project.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -20,7 +19,8 @@ BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.6.0
 BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	scrollkeeper >= 0.3.5
+#BuildRequires:	scrollkeeper >= 0.3.5
+# I've rarian-compact instead scrollkeeper
 %pyrequires_eq  python-modules
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
@@ -44,12 +44,12 @@ system wtyczek w Pythonie.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 sed -i -e 's|gramps.py|gramps.pyc|' gramps.sh.in
 rm -f src/po/no.*
 
 %build
+%{__intltoolize}
 %{__aclocal}
 %{__automake}
 %{__autoconf}
