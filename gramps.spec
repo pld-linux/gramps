@@ -16,11 +16,11 @@ BuildRequires:	GConf2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+2-devel >= 2:2.8.0
+BuildRequires:	intltool
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.6.0
 BuildRequires:	rpmbuild(macros) >= 1.197
-#BuildRequires:	scrollkeeper >= 0.3.5
-# I've rarian-compact instead scrollkeeper
+BuildRequires:	scrollkeeper >= 0.3.5
 %pyrequires_eq  python-modules
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
