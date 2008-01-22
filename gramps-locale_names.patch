@@ -1,24 +1,24 @@
-diff -urN gramps-2.2.9.orig/configure gramps-2.2.9/configure
---- gramps-2.2.9.orig/configure	2007-10-18 17:00:29.000000000 +0200
-+++ gramps-2.2.9/configure	2007-11-22 22:37:25.088413586 +0100
-@@ -4268,7 +4268,7 @@
+diff -urN gramps-2.2.10.orig/configure gramps-2.2.10/configure
+--- gramps-2.2.10.orig/configure	2007-10-18 17:00:29.000000000 +0200
++++ gramps-2.2.10/configure	2007-11-22 22:37:25.088413586 +0100
+@@ -4102,7 +4102,7 @@
  
  
  
--ALL_LINGUAS="hu zh_CN cs da de es fr it nb nl no pl pt_BR ro ru sv eo fi lt sk tr sl"
-+ALL_LINGUAS="hu zh_CN cs da de es fr it nb nl pl pt_BR ro ru sv eo fi lt sk tr sl"
+-ALL_LINGUAS="hu zh_CN cs da de es fr it nb nl no pl pt_BR ro ru sv eo fi lt sk tr sl bg"
++ALL_LINGUAS="hu zh_CN cs da de es fr it nb nl pl pt_BR ro ru sv eo fi lt sk tr sl bg"
  GETTEXT_PACKAGE=gramps
  
  
-diff -urN gramps-2.2.9.orig/configure.in gramps-2.2.9/configure.in
---- gramps-2.2.9.orig/configure.in	2007-10-18 17:00:04.000000000 +0200
-+++ gramps-2.2.9/configure.in	2007-11-22 22:38:03.585767750 +0100
+diff -urN gramps-2.2.10.orig/configure.in gramps-2.2.10/configure.in
+--- gramps-2.2.10.orig/configure.in	2007-10-18 17:00:04.000000000 +0200
++++ gramps-2.2.10/configure.in	2007-11-22 22:38:03.585767750 +0100
 @@ -52,7 +52,7 @@
  AC_SUBST(FONTPATH)
  
  dnl Add the languages which your application supports here.
--ALL_LINGUAS="hu zh_CN cs da de es fr it nb nl no pl pt_BR ro ru sv eo fi lt sk tr sl"
-+ALL_LINGUAS="hu zh_CN cs da de es fr it nb nl pl pt_BR ro ru sv eo fi lt sk tr sl"
+-ALL_LINGUAS="hu zh_CN cs da de es fr it nb nl no pl pt_BR ro ru sv eo fi lt sk tr sl bg"
++ALL_LINGUAS="hu zh_CN cs da de es fr it nb nl pl pt_BR ro ru sv eo fi lt sk tr sl bg"
  GETTEXT_PACKAGE=gramps
  AC_SUBST(GETTEXT_PACKAGE)
  AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Define to the Gettext package name.])
