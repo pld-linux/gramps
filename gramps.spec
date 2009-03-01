@@ -28,6 +28,8 @@ Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	hicolor-icon-theme
 Requires:	python-gnome-ui >= 2.12.2-2
+Suggests:	graphviz
+Suggests:	python-ReportLab
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -80,11 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install gramps.schemas
 %update_desktop_database_post
 %scrollkeeper_update_post
-%banner %{name} -e << EOF
-Following packages are strongly recommended to be installed:
-- graphviz (for creation of graphs)
-- python-ReportLab (for creation of PDF documents)
-EOF
 
 %preun
 %gconf_schema_uninstall gramps.schemas
