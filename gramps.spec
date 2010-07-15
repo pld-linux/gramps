@@ -1,12 +1,12 @@
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl.UTF-8):	System programowania do zarządzania badaniami i analizą genealogiczną
 Name:		gramps
-Version:	3.0.4
+Version:	3.2.3
 Release:	1
 License:	GPL v2
 Group:		Applications/Science
-Source0:	http://dl.sourceforge.net/gramps/%{name}-%{version}.tar.gz
-# Source0-md5:	7d27020f391ba333b8a9bd490e5bf56e
+Source0:	http://downloads.sourceforge.net/gramps/%{name}-%{version}.tar.gz
+# Source0-md5:	76a8d5bac3300d6fc81def3eccafcd27
 Patch0:		%{name}-icon_path.patch
 URL:		http://gramps-project.org/
 BuildRequires:	GConf2-devel
@@ -48,7 +48,7 @@ system wtyczek w Pythonie.
 %patch0 -p1
 
 sed -i -e 's|gramps.py|gramps.pyc|' gramps.sh.in
-cp /usr/share/gnome-doc-utils/gnome-doc-utils.make .
+cp %{_datadir}/gnome-doc-utils/gnome-doc-utils.make .
 
 %build
 %{__intltoolize}
@@ -79,12 +79,8 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/gramps/COPYING
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install gramps.schemas
 %update_desktop_database_post
 %scrollkeeper_update_post
-
-%preun
-%gconf_schema_uninstall gramps.schemas
 
 %postun
 %update_desktop_database_postun
@@ -97,30 +93,23 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_datadir}/gramps
 %{_datadir}/gramps/*.py*
-%{_datadir}/gramps/BasicUtils
-%{_datadir}/gramps/Config
-%{_datadir}/gramps/DataViews
 %{_datadir}/gramps/DateHandler
-%{_datadir}/gramps/DisplayModels
-%{_datadir}/gramps/DisplayTabs
-%{_datadir}/gramps/Editors
-%{_datadir}/gramps/FilterEditor
 %{_datadir}/gramps/Filters
-%{_datadir}/gramps/GrampsDbUtils
 %{_datadir}/gramps/GrampsLocale
 %{_datadir}/gramps/GrampsLogger
 %{_datadir}/gramps/Merge
-%{_datadir}/gramps/Mime
 %{_datadir}/gramps/PluginUtils
 %{_datadir}/gramps/ReportBase
-%{_datadir}/gramps/Selectors
 %{_datadir}/gramps/Simple
+%{_datadir}/gramps/cli
 %{_datadir}/gramps/data
 %{_datadir}/gramps/docgen
 %{_datadir}/gramps/example
 %{_datadir}/gramps/gen
 %{_datadir}/gramps/glade
+%{_datadir}/gramps/gui
 %{_datadir}/gramps/images
+%{_datadir}/gramps/mapstraction
 %{_datadir}/gramps/plugins
 
 %{_desktopdir}/*.desktop
@@ -128,7 +117,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/gramps.png
 
 %{_datadir}/mime/packages/gramps.xml
-####%{_datadir}/mime/packages/gramps.schemas
 
 %{_mandir}/man1/*
 %lang(fr) %{_mandir}/fr/man1/*
