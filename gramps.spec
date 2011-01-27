@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	python >= 1:2.5
 BuildRequires:	python-gnome-devel >= 2.6.0
 BuildRequires:	python-pygtk-devel >= 2:2.10.0
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.5
 %pyrequires_eq  python-modules
