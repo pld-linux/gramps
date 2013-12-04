@@ -1,13 +1,12 @@
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl.UTF-8):	System programowania do zarządzania badaniami i analizą genealogiczną
 Name:		gramps
-Version:	3.3.0
-%define	subver	1
+Version:	4.0.2
 Release:	1
 License:	GPL v2
 Group:		Applications/Science
-Source0:	http://downloads.sourceforge.net/gramps/%{name}-%{version}-%{subver}.tar.gz
-# Source0-md5:	c28d387a5c50eac6813d91ac684028d3
+Source0:	http://downloads.sourceforge.net/gramps/%{name}-%{version}.tar.gz
+# Source0-md5:	41d9ae797c2eb2da42474aca3cccb6b3
 Patch0:		%{name}-icon_path.patch
 URL:		http://gramps-project.org/
 BuildRequires:	GConf2-devel
@@ -19,8 +18,6 @@ BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 1:2.5
-BuildRequires:	python-gnome-devel >= 2.6.0
-BuildRequires:	python-pygtk-devel >= 2:2.10.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.5
@@ -49,33 +46,28 @@ system wtyczek w Pythonie.
 %setup -q
 %patch0 -p1
 
-sed -i -e 's|gramps.py|gramps.pyc|' gramps.sh.in
-cp %{_datadir}/gnome-doc-utils/gnome-doc-utils.make .
-
 %build
-%{__intltoolize}
-%{__aclocal}
-%{__automake}
-%{__autoconf}
-%configure \
-	--disable-schemas-install \
-	--disable-mime-install \
-	--disable-scrollkeeper
-%{__make}
+CC="%{__cc}" \
+CFLAGS="%{rpmcflags}" \
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} -j1 install \
-	DESTDIR=$RPM_BUILD_ROOT
+%{__python} setup.py \
+	install \
+	--root=$RPM_BUILD_ROOT \
+	--optimize=2
 
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
-install src/images/gramps.png $RPM_BUILD_ROOT%{_pixmapsdir}
-rm -rf $RPM_BUILD_ROOT%{_datadir}/mime-info
-rm -rf $RPM_BUILD_ROOT%{_datadir}/application-registry
-rm -rf $RPM_BUILD_ROOT%{_datadir}/gramps/COPYING
+install images/gramps.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
-%find_lang gramps --with-gnome
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/mime-info
+%{__rm} -r  $RPM_BUILD_ROOT%{_docdir}/%{name}
+
+%py_postclean
+
+%find_lang gramps
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -90,35 +82,29 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f gramps.lang
 %defattr(644,root,root,755)
-%doc AUTHORS FAQ NEWS README TODO
+%doc AUTHORS FAQ NEWS README TODO example
 %attr(755,root,root) %{_bindir}/gramps
 
 %dir %{_datadir}/gramps
-%{_datadir}/gramps/*.py*
-%{_datadir}/gramps/DateHandler
-%{_datadir}/gramps/Filters
-%{_datadir}/gramps/GrampsLocale
-%{_datadir}/gramps/GrampsLogger
-%{_datadir}/gramps/Merge
-%{_datadir}/gramps/Simple
-%{_datadir}/gramps/cli
-%{_datadir}/gramps/data
-%{_datadir}/gramps/docgen
-%{_datadir}/gramps/example
-%{_datadir}/gramps/gen
-%{_datadir}/gramps/glade
-%{_datadir}/gramps/gui
+%{_datadir}/gramps/*.xml
+%{_datadir}/gramps/css
 %{_datadir}/gramps/images
-%{_datadir}/gramps/plugins
+
+%{py_sitescriptdir}/gramps
+%{py_sitescriptdir}/gramps-*.egg-info
 
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/mimetypes/*
 %{_pixmapsdir}/gramps.png
 
+%{_datadir}/appdata/gramps.appdata.xml
+
 %{_datadir}/mime/packages/gramps.xml
 
 %{_mandir}/man1/*
+%lang(cs) %{_mandir}/cs/man1/*
 %lang(fr) %{_mandir}/fr/man1/*
 %lang(nl) %{_mandir}/nl/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
+%lang(pt_BR) %{_mandir}/pt_BR/man1/*
 %lang(sv) %{_mandir}/sv/man1/*
