@@ -12,7 +12,7 @@ URL:		http://gramps-project.org/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool
