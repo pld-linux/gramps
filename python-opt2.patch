@@ -1,0 +1,10 @@
+-O uses opt-1.pyc files, not included in our RPMs
+
+diff -dur gramps-4.2.3.orig/scripts/gramps gramps-4.2.3/scripts/gramps
+--- gramps-4.2.3.orig/scripts/gramps	2016-01-06 18:08:30.000000000 +0100
++++ gramps-4.2.3/scripts/gramps	2016-04-16 18:21:01.332394712 +0200
+@@ -1,3 +1,3 @@
+-#!/usr/bin/env python -O
++#!/usr/bin/env python -OO
+ import gramps.grampsapp as app
+ app.main()

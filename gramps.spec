@@ -1,34 +1,30 @@
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl.UTF-8):	System programowania do zarządzania badaniami i analizą genealogiczną
 Name:		gramps
-Version:	4.0.2
-Release:	2
+Version:	4.2.3
+Release:	1
 License:	GPL v2
 Group:		Applications/Science
 Source0:	http://downloads.sourceforge.net/gramps/%{name}-%{version}.tar.gz
-# Source0-md5:	41d9ae797c2eb2da42474aca3cccb6b3
+# Source0-md5:	84dd51a8da697fb494d2c22fd07a360d
 Patch0:		%{name}-icon_path.patch
+Patch1:		python-opt2.patch
 URL:		http://gramps-project.org/
-BuildRequires:	GConf2-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	gettext-tools
-BuildRequires:	gnome-doc-utils
-BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool
-BuildRequires:	pkgconfig
-BuildRequires:	python >= 1:2.5
+BuildRequires:	python3 >= 1:3.2
+BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	scrollkeeper >= 0.3.5
+BuildRequires:	rpmbuild(macros) >= 1.713
 %pyrequires_eq  python-modules
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	scrollkeeper
-Requires(post,preun):	GConf2
 Requires:	hicolor-icon-theme
-Requires:	python-gnome-ui >= 2.12.2-2
+Requires:	python3-bsddb3
+Requires:	python3-pygobject3 >= 3.12
+Requires:	python3-pyicu
+Requires:	python3-pycairo
+Requires:	xdg-utils
 Suggests:	graphviz
-Suggests:	python-ReportLab
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,29 +41,22 @@ system wtyczek w Pythonie.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
-CC="%{__cc}" \
-CFLAGS="%{rpmcflags}" \
-%{__python} setup.py build
+%py3_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__python} setup.py \
-	install \
-	--root=$RPM_BUILD_ROOT \
-	--optimize=2
+%py3_install
 
-install -d $RPM_BUILD_ROOT%{_pixmapsdir}
-install images/gramps.png $RPM_BUILD_ROOT%{_pixmapsdir}
+echo -n "%{_datadir}" > $RPM_BUILD_ROOT%{py3_sitescriptdir}/gramps/gen/utils/resource-path
 
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/mime-info
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 %{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
-
-%py_postclean
 
 %find_lang gramps
 
@@ -76,11 +65,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_desktop_database_post
-%scrollkeeper_update_post
 
 %postun
 %update_desktop_database_postun
-%scrollkeeper_update_postun
 
 %files -f gramps.lang
 %defattr(644,root,root,755)
@@ -92,8 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gramps/css
 %{_datadir}/gramps/images
 
-%{py_sitescriptdir}/gramps
-%{py_sitescriptdir}/gramps-*.egg-info
+%{py3_sitescriptdir}/gramps
+%{py3_sitescriptdir}/gramps-*.egg-info
 
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/mimetypes/*
