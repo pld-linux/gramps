@@ -24,7 +24,8 @@ Requires:	python3-pygobject3 >= 3.12
 Requires:	python3-pyicu
 Requires:	python3-pycairo
 Requires:	xdg-utils
-Suggests:	graphviz
+Recommends:	graphviz
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
