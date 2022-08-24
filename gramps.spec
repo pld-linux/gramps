@@ -1,14 +1,13 @@
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl.UTF-8):	System programowania do zarządzania badaniami i analizą genealogiczną
 Name:		gramps
-Version:	4.2.3
-Release:	7
+Version:	5.1.5
+Release:	0.1
 License:	GPL v2
 Group:		Applications/Science
 Source0:	http://downloads.sourceforge.net/gramps/%{name}-%{version}.tar.gz
-# Source0-md5:	84dd51a8da697fb494d2c22fd07a360d
-Patch0:		%{name}-icon_path.patch
-Patch1:		python-opt2.patch
+# Source0-md5:	1185863de6dd30926a50d2083782078d
+Patch0:		python-opt2.patch
 URL:		http://gramps-project.org/
 BuildRequires:	gettext-tools
 BuildRequires:	intltool
@@ -16,13 +15,13 @@ BuildRequires:	python3 >= 1:3.2
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.713
-%pyrequires_eq  python-modules
+Requires:	python3-modules
 Requires(post,postun):	desktop-file-utils
 Requires:	hicolor-icon-theme
-Requires:	python3-bsddb3
+Requires:	python3-gexiv2
+Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.12
 Requires:	python3-pyicu
-Requires:	python3-pycairo
 Requires:	xdg-utils
 Recommends:	graphviz
 BuildArch:	noarch
@@ -42,7 +41,6 @@ system wtyczek w Pythonie.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %py3_build
@@ -57,7 +55,7 @@ echo -n "%{_datadir}" > $RPM_BUILD_ROOT%{py3_sitescriptdir}/gramps/gen/utils/res
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/mime-info
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
-%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/pt{_PT,}
 
 %find_lang gramps
 
@@ -72,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f gramps.lang
 %defattr(644,root,root,755)
-%doc AUTHORS FAQ NEWS README TODO example
+%doc AUTHORS FAQ NEWS README.md TODO example
 %attr(755,root,root) %{_bindir}/gramps
 
 %dir %{_datadir}/gramps
@@ -85,10 +83,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/mimetypes/*
-%{_pixmapsdir}/gramps.png
-
-%{_datadir}/appdata/gramps.appdata.xml
-
+%{_datadir}/gramps/grampsxml.dtd
+%{_datadir}/gramps/grampsxml.rng
+%{_iconsdir}/hicolor/*x*/apps/gramps.png
+%{_iconsdir}/hicolor/scalable/apps/gramps.svg
+%{_datadir}/metainfo/gramps.appdata.xml
 %{_datadir}/mime/packages/gramps.xml
 
 %{_mandir}/man1/*
