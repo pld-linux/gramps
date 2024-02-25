@@ -1,14 +1,14 @@
 Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl.UTF-8):	System programowania do zarządzania badaniami i analizą genealogiczną
 Name:		gramps
-Version:	5.1.6
+Version:	5.2.0
 Release:	1
 License:	GPL v2
 Group:		Applications/Science
-Source0:	http://downloads.sourceforge.net/gramps/%{name}-%{version}.tar.gz
-# Source0-md5:	5ff9bc8cb28a103aa82ac84a08d090d1
+Source0:	https://downloads.sourceforge.net/gramps/%{name}-%{version}.tar.gz
+# Source0-md5:	3a3718e869381e2c8801b643fde43127
 Patch0:		python-opt2.patch
-URL:		http://gramps-project.org/
+URL:		https://gramps-project.org/
 BuildRequires:	gettext-tools
 BuildRequires:	intltool
 BuildRequires:	python3 >= 1:3.2
@@ -52,7 +52,6 @@ rm -rf $RPM_BUILD_ROOT
 
 echo -n "%{_datadir}" > $RPM_BUILD_ROOT%{py3_sitescriptdir}/gramps/gen/utils/resource-path
 
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/mime-info
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/pt{_PT,}
@@ -77,6 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gramps/*.xml
 %{_datadir}/gramps/css
 %{_datadir}/gramps/images
+/usr/share/gramps/gramps.css
 
 %{py3_sitescriptdir}/gramps
 %{py3_sitescriptdir}/gramps-*.egg-info
@@ -85,10 +85,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/mimetypes/*
 %{_datadir}/gramps/grampsxml.dtd
 %{_datadir}/gramps/grampsxml.rng
-%{_iconsdir}/hicolor/*x*/apps/gramps.png
-%{_iconsdir}/hicolor/scalable/apps/gramps.svg
-%{_datadir}/metainfo/gramps.appdata.xml
-%{_datadir}/mime/packages/gramps.xml
+%{_iconsdir}/hicolor/*x*/apps/org.gramps_project.Gramps.png
+%{_iconsdir}/hicolor/scalable/apps/org.gramps_project.Gramps.svg
+%{_datadir}/metainfo/org.gramps_project.Gramps.appdata.xml
+%{_datadir}/mime/packages/org.gramps_project.Gramps.xml
 
 %{_mandir}/man1/*
 %lang(cs) %{_mandir}/cs/man1/*
