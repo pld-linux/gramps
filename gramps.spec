@@ -2,7 +2,7 @@ Summary:	Genealogical Research and Analysis Management Programming System
 Summary(pl.UTF-8):	System programowania do zarządzania badaniami i analizą genealogiczną
 Name:		gramps
 Version:	5.2.0
-Release:	
+Release:	2
 License:	GPL v2
 Group:		Applications/Science
 Source0:	https://downloads.sourceforge.net/gramps/%{name}-%{version}.tar.gz
@@ -40,7 +40,7 @@ system wtyczek w Pythonie.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 
 %build
 %py3_build
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gramps/*.xml
 %{_datadir}/gramps/css
 %{_datadir}/gramps/images
-/usr/share/gramps/gramps.css
+%{_datadir}/gramps/gramps.css
 
 %{py3_sitescriptdir}/gramps
 %{py3_sitescriptdir}/gramps-*.egg-info
